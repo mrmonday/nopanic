@@ -1,0 +1,18 @@
+[package]
+
+name = "nopanic"
+version = "0.0.1"
+authors = ["Robert Clipsham <robert@octarineparrot.com>"]
+license = "MIT/Apache-2.0"
+homepage = "https://github.com/mrmonday/nopanic"
+repository = "https://github.com/mrmonday/nopanic"
+description = "A compiler plugin to deny a function or method from panicking"
+readme = "README.md"
+keywords = ["plugin", "panic", "lint"]
+
+[lib]
+name = "nopanic"
+plugin = true
+
+[dev-dependencies]
+compiletest_rs = "*"
