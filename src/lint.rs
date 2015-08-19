@@ -48,11 +48,11 @@ impl<'a, 'b, 'v> visit::Visitor<'v> for NoPanicVisitor<'a, 'b> {
                 //println!("SOME CALL EXPR");
                 if let ast::ExprPath(_, ref path) = expr_path.node {
                     if path.segments.len() == 3 &&
-                       path.segments[0].identifier.as_str() == "std" &&
-                       path.segments[1].identifier.as_str() == "rt" &&
-                       (path.segments[2].identifier.as_str() == "begin_unwind" ||
-                        path.segments[2].identifier.as_str() == "begin_unwind_fmt" ||
-                        path.segments[2].identifier.as_str() == "rust_begin_unwind"
+                       path.segments[0].identifier.name.as_str() == "std" &&
+                       path.segments[1].identifier.name.as_str() == "rt" &&
+                       (path.segments[2].identifier.name.as_str() == "begin_unwind" ||
+                        path.segments[2].identifier.name.as_str() == "begin_unwind_fmt" ||
+                        path.segments[2].identifier.name.as_str() == "rust_begin_unwind"
                         ){
                         self.cx.span_lint(NOPANIC_LINT, expr.span, "this expression could cause a panic!");
                     }
